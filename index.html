@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vampire Survivor Iso</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <!-- 🎮 CANVAS PRINCIPAL -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- 🎯 HUD EN JEU -->
+    <div id="game-hud">
+        <div class="hud-top">
+            <!-- Barre de vie -->
+            <div class="stat-bar hp-container">
+                <span class="stat-label">❤️ VIE</span>
+                <div class="bar-container">
+                    <div id="hp-bar" class="bar hp-bar"></div>
+                    <span id="hp-text" class="bar-text">100/100</span>
+                </div>
+            </div>
+            
+            <!-- Barre d'XP -->
+            <div class="stat-bar xp-container">
+                <span class="stat-label">⭐ XP</span>
+                <div class="bar-container">
+                    <div id="xp-bar" class="bar xp-bar"></div>
+                    <span id="xp-text" class="bar-text">Niveau 1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats du joueur -->
+        <div class="hud-stats">
+            <div class="stat-item">🗡️ <span id="stat-kills">0</span></div>
+            <div class="stat-item">⏱️ <span id="stat-time">0:00</span></div>
+            <div class="stat-item">🏆 Niv. <span id="stat-level">1</span></div>
+        </div>
+    </div>
+
+    <!-- 🌊 INDICATEUR DE VAGUE (NOUVEAU) -->
+    <div id="wave-indicator">
+        <h3>🌊 VAGUE</h3>
+        <div id="wave-number">1</div>
+        <div id="wave-break" class="hidden">
+            <p>Prochaine vague dans</p>
+            <div id="wave-timer" style="font-size: 2rem; font-weight: bold; color: #4caf50;">15s</div>
+        </div>
+    </div>
+
+    <!-- 💨 COOLDOWN DASH -->
+    <div class="dash-indicator" id="dash-indicator">
+        <div class="dash-icon">💨</div>
+        <div class="dash-cooldown-bar">
+            <div id="dash-cooldown-fill" class="dash-fill"></div>
+        </div>
+        <span class="dash-key">ESPACE</span>
+    </div>
+
+    <!-- 🗺️ MINI-MAP -->
+    <canvas id="minimap" width="150" height="150"></canvas>
+
+    <!-- 📊 INDICATEURS DE DÉGÂTS -->
+    <div id="damage-numbers"></div>
+
+    <!-- ⏸️ MENU PAUSE -->
+    <div id="pause-menu" class="hidden">
+        <div class="overlay"></div>
+        <div class="modal pause-modal">
+            <h2>⏸️ PAUSE</h2>
+            <button class="menu-btn" id="resume-btn">▶️ Reprendre</button>
+            <button class="menu-btn danger" id="quit-btn">🚪 Quitter</button>
+        </div>
+    </div>
+
+    <!-- 🆙 ÉCRAN LEVEL UP -->
+    <div id="levelup-screen" class="hidden">
+        <div class="overlay"></div>
+        <div class="modal">
+            <h2>NIVEAU SUPÉRIEUR !</h2>
+            <div id="upgrade-container" class="cards-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
